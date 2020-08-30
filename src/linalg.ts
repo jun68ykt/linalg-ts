@@ -68,14 +68,14 @@ const qr = (A: Vector[]): [Vector[], Vector[]] => {
     const Q: Vector[] = Array(n).fill(null);
     const R: Vector[] = [...Array(n)].map(_ => new Vector([...A[0]].fill(0)));
 
-    for (let i = 0; i < n; ++ i) {
-        let v = A[i];
-        for (let j =0; j < i; ++ j) {
-            R[i][j] = A[i].dot(Q[j]);
-            v = v.subtract(Q[j].mul(R[i][j]));
+    for (let j = 0; j < n; ++ j) {
+        let v = A[j];
+        for (let i =0; i < j; ++ i) {
+            R[j][i] = A[j].dot(Q[i]);
+            v = v.subtract(Q[i].mul(R[j][i]));
         }
-        R[i][i] = v.norm;
-        Q[i] = v.mul(1 / R[i][i]);
+        R[j][j] = v.norm;
+        Q[j] = v.mul(1 / R[j][j]);
     }
 
     return [Q, R];
