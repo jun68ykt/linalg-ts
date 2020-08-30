@@ -12,7 +12,7 @@ for (let x of a) {
 
 const b: Vector = new Vector([2,  0, -2]);
 const c: Vector = new Vector([3, -3, 3]);
-const A = [a, b, c];
+const A: Vector[] = [a, b, c];
 
 const [Q, R] = qr(A)
 
