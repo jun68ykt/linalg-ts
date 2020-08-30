@@ -40,7 +40,7 @@ class Vector {
 
     // return the addition vector of this vector and the other vector
     add(other: Vector): Vector {
-        return new Vector([...this].map((v, i) => v - other[i]));
+        return new Vector([...this].map((v, i) => v + other[i]));
     }
 
     // return the difference vector to subtract the other vector from this vector
